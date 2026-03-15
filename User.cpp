@@ -48,5 +48,7 @@ public:
         email = newEmail;
     }
 
+    // virtual makes sure the right clean up happens 
+    // ~User cleans up the object 
     virtual ~User(){}
 };
