@@ -74,4 +74,52 @@ public:
         cout << "Address: " << address << endl; 
         cout << "Age: " << age << endl;
     }
+
+    // MEMBER MENU
+    void menu(Book& book) {
+        int choice;
+        do {
+            cout << "\n===== MEMBER MENU =====\n";
+            cout << "1. Search Book\n";
+            cout << "2. Borrow Book\n";
+            cout << "3. Return Book\n";
+            cout << "4. Reserve Book\n";
+            cout << "5. View Profile\n";
+            cout << "6. Logout\n";
+            cout << "Choose an option: ";
+            cin >> choice;
+
+            // if statments for which choice the user picks 
+            if (choice == 2) {
+                borrowBook(book);
+                break;
+            }
+    
+            else if (choice == 3) {
+                returnBook(book);
+                break;
+            }
+    
+            else if (choice == 4) {
+                reserveBook(book);
+                break;
+            }
+    
+            else if (choice == 5) {
+                viewProfile();
+                break;
+            }
+    
+            else if (choice == 6) {
+                logout();
+                cout << "You have been logged out\n";
+                break;
+            }
+    
+            else {
+                cout << "Invalid option.\n";
+            }
+            
+        } while (choice != 6);
+    }
 };
