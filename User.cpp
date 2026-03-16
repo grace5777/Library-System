@@ -1,5 +1,6 @@
 #include <iostream>
-using namespace std 
+#include <string>
+using namespace std; 
 
 // USER CLASS
 class User {
@@ -28,22 +29,23 @@ public:
 
     // LOGIN
     bool login() {
-        std::cout << name << "logged in.\n";
+        cout << name << "logged in.\n";
+        return true;
     }
 
     // LOGOUT
     void logout() {
-        std::cout << name << "logged out.\n";
+        cout << name << "logged out.\n";
     }
 
     // VIEW PROFILE
     virtual void viewProfile() {
-        std::cout << "Name: " << name << std::endl;
-        std::cout << "Email: " << email << std::endl;
+        std::cout << "Name: " << name << endl;
+        std::cout << "Email: " << email << endl;
     }
 
     // UPDATING PROFILE 
-    virtual void updatePofile(std::string newName, std::string newEmail) {
+    virtual void updatePofile(string newName, string newEmail) {
         name = newName;
         email = newEmail;
     }
