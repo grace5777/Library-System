@@ -36,7 +36,7 @@ public:
             book.setStatus(BORROWED);
             // changes member borrwed counter to add one 
             currentBorrowed++;
-            cout << name << " has borrowed the book.\n";
+            cout << username << " has borrowed the book.\n";
         }
         else {
             cout << "Book is unavailable or you have reached the borrowing limit.\n";
@@ -49,7 +49,7 @@ public:
         book.setStatus(AVAILABLE);
         // changes the members borrowed count to take away one 
         currentBorrowed--;
-        cout << name << " has returned the book.\n";
+        cout << username << " has returned the book.\n";
     }
 
     // RESERVING A BOOK 
@@ -58,7 +58,7 @@ public:
         if (!book.isAvailable()) {
             // changes book status to reserved 
             book.setStatus(RESERVED);
-            cout << name << " has reserved the book.\n";
+            cout << username << " has reserved the book.\n";
         }
         else {
             cout << "The book is available and you can borrow it.\n";
@@ -71,8 +71,7 @@ public:
         cout << "Member Profile\n";
         cout << "Name: " << name << endl;
         cout << "Phone Number: " << phoneNum << endl;
-        cout << "Email: " << email << endl;
-        cout << "Address: " << address << endl; 
+        cout << "Email: " << email << endl; 
         cout << "Age: " << age << endl;
     }
 
@@ -86,9 +85,6 @@ public:
     
         cout << "Please enter your phone number: ";
         cin >> phoneNum;
-    
-        cout << "Please enter your address: ";
-        cin >> address;
     
         cout << "Please enter your age: ";
         cin >> age;
@@ -112,22 +108,18 @@ public:
             // if statments for which choice the user picks 
             if (choice == 2) {
                 borrowBook(book);
-                break;
             }
     
             else if (choice == 3) {
                 returnBook(book);
-                break;
             }
     
             else if (choice == 4) {
                 reserveBook(book);
-                break;
             }
     
             else if (choice == 5) {
                 viewProfile();
-                break;
             }
 
             else if (choice == 6) {
@@ -137,7 +129,6 @@ public:
             else if (choice == 7) {
                 logout();
                 cout << "You have been logged out\n";
-                break;
             }
     
             else {
