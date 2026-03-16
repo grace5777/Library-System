@@ -94,9 +94,11 @@ public:
     // vector for the list of books
     void searchBook(vector<Book>& books) {
         string searchTitle;
+
+        cin.ignore();
     
         cout << "Please enter the books title to search: ";
-        cin >> searchTitle;
+        getline(cin, searchTitle);
     
         bool found = false;
     
