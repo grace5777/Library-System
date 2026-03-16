@@ -29,7 +29,7 @@ public:
 
     // LOGIN
     bool login() {
-        cout << name << "logged in.\n";
+        cout << username << "logged in.\n";
         return true;
     }
 
