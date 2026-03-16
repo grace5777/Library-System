@@ -27,19 +27,41 @@ public:
     }
 
     // BORROW A BOOK 
-    // Book& book refers to book and makes it able to change status
-    void borrowBook(Book& book) {
-        // CHECKING IF BOOK IS AVAILABLE
-        // both conditions need to be true
-        if (book.isAvailable() && currentBorrowed < borrowLimit) {
-            // changes book status to borrowed
-            book.setStatus(BORROWED);
-            // changes member borrwed counter to add one 
-            currentBorrowed++;
-            cout << username << " has borrowed the book.\n";
+    // vector for the list of books 
+    void borrowBook(vector<Book>& books) {
+        cout << "\nAvailable Books:\n";
+    
+        // looping through all the books
+        for (int i = 0; i < books.size(); i++) {
+            // shows the list of books numbered 
+            cout << i + 1 << ". ";
+            books[i].display();
         }
+    
+        int choice; 
+        cout << "Please select a book number you would like to borrow: ";
+        cin >> choice;
+    
+        // checking the input is valid 
+        if (choice < 1 or choice > books.size()) {
+            cout << "Invalid selection.\n";
+            return;
+        }
+    
+        Book& selectedBook = books[choice - 1];
+    
+        // book must be available and user hasn't met their borrowing limit
+        if (selectedBook.isAvailable() && currentBorrowed < borrowLimit) {
+            // marking the book as borrowed 
+            selectedBook.setStatus(BORROWED);
+            // updating the users borrowed count 
+            currentBorrowed++;
+            cout << username << " borrowed ";
+            selectedBook.display();
+        }
+    
         else {
-            cout << "Book is unavailable or you have reached the borrowing limit.\n";
+            cout << "Book unavaliable or borrowung limit reached.\n";
         }
     }
 
@@ -138,7 +160,7 @@ public:
             }
             
             else if (choice == 2) {
-                borrowBook(books[0]);
+                borrowBook(books);
             }
     
             else if (choice == 3) {
