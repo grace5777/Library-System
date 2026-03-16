@@ -79,7 +79,7 @@ public:
     void menu(Book& book) {
         int choice;
         do {
-            cout << "\n===== MEMBER MENU =====\n";
+            cout << "\n--- MEMBER MENU ---\n";
             cout << "1. Search Book\n";
             cout << "2. Borrow Book\n";
             cout << "3. Return Book\n";
