@@ -1,4 +1,4 @@
-using namespace std
+using namespace std;
 
 class Book {
 private:
@@ -13,7 +13,7 @@ public:
 		title = t;
 		author = a;
 		genre = g;
-		status = AVALIABLE;
+		status = AVAILABLE;
 	}
 
 	string getTitle() {
@@ -21,7 +21,7 @@ public:
 	}
 
 	bool isAvaliable() {
-		return status == AVALIABLE;
+		return status == AVAILABLE;
 	}
 
 	void setStatus(BookStatus s) {
@@ -29,6 +29,6 @@ public:
 	}
 
 	void display() {
-		cout << title << " by " << author << end;
+		cout << title << " by " << author << endl;
 	}
 };
