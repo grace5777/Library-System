@@ -14,13 +14,19 @@ int main() {
     cout << "Please enter your password: ";
     cin >> password;
 
-    Book b1("Book1", "Jane Doe", "Workbook");
+    // MAKING BOOKS
+    vector<Book> books;
+    books.push_back(Book("Alice's Adventures in Wonderland", "Lewis Carroll", "Fantasy"));
+    books.push_back(Book("Winnie-the-pooh", "EH Shepard", "Cartoon"));
+    books.push_back(Book("Charlotte's Web", "Garth Williams", "Thriller"));
+    books.push_back(Book("The BFG", "Roald Dahl", "Horror"));
+    books.push_back(Book("Marry Poppins", "PL Travers", "Fantasty"));
 
     // making a new library member called m1 to be able to fill in the deatils
     Member m1(id, username, password);
 
     m1.login();
-    m1.menu(b1);
+    m1.menu(books);
     m1.viewProfile();
 
     return 0;
