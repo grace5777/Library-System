@@ -16,10 +16,11 @@ private:
 public:
     // the constructor 
     // : User calls the user constructor first 
-    Member(int id, string u, string p, string e, string n, string ad, string phone, int a) : User(id, u, p, e, n) {
-        address = ad;
-        phoneNum = phone;
-        age = a;
+    Member(int id, string u, string p) : User(id, u, p, "", "") {
+        // empty strings because they haven't been filled in yet
+        address = "";
+        phoneNum = "";
+        age = 0;
 
         borrowLimit = 5;
         currentBorrowed = 0;
@@ -75,6 +76,24 @@ public:
         cout << "Age: " << age << endl;
     }
 
+    // COMPLETING THE PROFILE
+    void completeProfile() {
+        cout << "Please enter your name: ";
+        cin >> name;
+    
+        cout << "Please enter your email: ";
+        cin >> email;
+    
+        cout << "Please enter your phone number: ";
+        cin >> phoneNum;
+    
+        cout << "Please enter your address: ";
+        cin >> address;
+    
+        cout << "Please enter your age: ";
+        cin >> age;
+    }
+
     // MEMBER MENU
     void menu(Book& book) {
         int choice;
@@ -85,7 +104,8 @@ public:
             cout << "3. Return Book\n";
             cout << "4. Reserve Book\n";
             cout << "5. View Profile\n";
-            cout << "6. Logout\n";
+            cout << "6. Complete Profile\n";
+            cout << "7. Logout\n";
             cout << "Choose an option: ";
             cin >> choice;
 
@@ -109,8 +129,12 @@ public:
                 viewProfile();
                 break;
             }
-    
+
             else if (choice == 6) {
+                completeProfile();
+            }
+    
+            else if (choice == 7) {
                 logout();
                 cout << "You have been logged out\n";
                 break;
@@ -120,6 +144,6 @@ public:
                 cout << "Invalid option.\n";
             }
             
-        } while (choice != 6);
+        } while (choice != 7);
     }
 };
