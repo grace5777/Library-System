@@ -90,8 +90,33 @@ public:
         cin >> age;
     }
 
+    // SEARCH FOR BOOKS 
+    // vector for the list of books
+    void searchBook(vector<Book>& books) {
+        string searchTitle;
+    
+        cout << "Please enter the books title to search: ";
+        cin >> searchTitle;
+    
+        bool found = false;
+    
+        // looping through all the books
+        for (Book& book : books) {
+            // comparing book titles
+            if (book.getTitle() == searchTitle) {
+                book.display();
+                found = true;
+            }
+        }
+    
+        // if book isn't found
+        if (!found) {
+            cout << "Book not found.\n";
+        }
+    }
+
     // MEMBER MENU
-    void menu(Book& book) {
+    void menu(vector<Book>& books) {
         int choice;
         do {
             cout << "\n--- MEMBER MENU ---\n";
@@ -106,16 +131,20 @@ public:
             cin >> choice;
 
             // if statments for which choice the user picks 
-            if (choice == 2) {
-                borrowBook(book);
+            if (choice == 1) {
+                searchBook(books);
+            }
+            
+            else if (choice == 2) {
+                borrowBook(books[0]);
             }
     
             else if (choice == 3) {
-                returnBook(book);
+                returnBook(books[0]);
             }
     
             else if (choice == 4) {
-                reserveBook(book);
+                reserveBook(books[0]);
             }
     
             else if (choice == 5) {
